@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -20,49 +21,49 @@
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 2rem;
             text-align: center;
         }
-        
+
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             font-weight: 300;
         }
-        
+
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
         }
-        
+
         .content {
             padding: 2rem;
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
             color: #555;
         }
-        
+
         input[type="url"] {
             width: 100%;
             padding: 12px 16px;
@@ -71,13 +72,13 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-        
+
         input[type="url"]:focus {
             outline: none;
             border-color: #4facfe;
             box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
         }
-        
+
         .button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -89,26 +90,26 @@
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
+
         .button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
         }
-        
+
         .button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
-        
+
         .loading {
             display: none;
             text-align: center;
             padding: 2rem;
             color: #666;
         }
-        
+
         .spinner {
             border: 3px solid #f3f3f3;
             border-top: 3px solid #667eea;
@@ -118,12 +119,17 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 1rem;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .results {
             display: none;
             margin-top: 2rem;
@@ -131,7 +137,7 @@
             background: #f8f9fa;
             border-radius: 8px;
         }
-        
+
         .error {
             display: none;
             margin-top: 1rem;
@@ -141,66 +147,68 @@
             border-radius: 8px;
             color: #c33;
         }
-        
+
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .stat-card {
             background: white;
             padding: 1rem;
             border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        
+
         .stat-value {
             font-size: 1.8rem;
             font-weight: bold;
             color: #667eea;
             display: block;
         }
-        
+
         .stat-label {
             font-size: 0.9rem;
             color: #666;
             margin-top: 0.25rem;
         }
-        
-        .text-preview, .summary-preview {
+
+        .text-preview,
+        .summary-preview {
             background: white;
             padding: 1rem;
             border-radius: 6px;
             border-left: 4px solid #667eea;
             margin-bottom: 1rem;
         }
-        
-        .text-preview h3, .summary-preview h3 {
+
+        .text-preview h3,
+        .summary-preview h3 {
             margin-bottom: 0.5rem;
             color: #333;
         }
-        
+
         .text-content {
             font-family: 'Georgia', serif;
             line-height: 1.6;
             color: #555;
         }
-        
+
         .example-urls {
             margin-top: 1rem;
             padding: 1rem;
             background: #e8f4fd;
             border-radius: 6px;
         }
-        
+
         .example-urls h4 {
             margin-bottom: 0.5rem;
             color: #333;
         }
-        
+
         .url-link {
             display: block;
             color: #0066cc;
@@ -208,37 +216,33 @@
             margin: 0.25rem 0;
             font-size: 0.9rem;
         }
-        
+
         .url-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>📚 Gutenberg Text Cleaner</h1>
             <p>Clean and analyze text from Project Gutenberg books</p>
         </div>
-        
+
         <div class="content">
             <form id="textForm">
                 <div class="form-group">
                     <label for="url">Project Gutenberg URL:</label>
-                    <input 
-                        type="url" 
-                        id="url" 
-                        name="url" 
-                        placeholder="https://www.gutenberg.org/files/1342/1342-0.txt"
-                        required
-                    >
+                    <input type="url" id="url" name="url" placeholder="https://www.gutenberg.org/files/1342/1342-0.txt"
+                        required>
                 </div>
-                
+
                 <button type="submit" class="button" id="submitBtn">
                     Clean & Analyze Text
                 </button>
             </form>
-            
+
             <div class="example-urls">
                 <h4>Example URLs to try:</h4>
                 <a href="#" class="url-link" onclick="setUrl('https://www.gutenberg.org/files/1342/1342-0.txt')">
@@ -254,30 +258,30 @@
                     Moby Dick by Herman Melville
                 </a>
             </div>
-            
+
             <div class="loading" id="loading">
                 <div class="spinner"></div>
                 <p>Processing text... This may take a moment for large books.</p>
             </div>
-            
+
             <div class="error" id="error">
                 <strong>Error:</strong> <span id="errorMessage"></span>
             </div>
-            
+
             <div class="results" id="results">
                 <h2>📊 Analysis Results</h2>
-                
+
                 <div class="stat-grid" id="stats">
                     <!-- Statistics will be populated here -->
                 </div>
-                
+
                 <div class="summary-preview">
                     <h3>📝 Summary (First 3 sentences)</h3>
                     <div class="text-content" id="summary">
                         <!-- Summary will be populated here -->
                     </div>
                 </div>
-                
+
                 <div class="text-preview">
                     <h3>🧹 Cleaned Text (First 500 characters)</h3>
                     <div class="text-content" id="preview">
@@ -289,113 +293,183 @@
     </div>
 
     <script>
-        // TODO: Students need to implement these functions for Part 4
-        
         function setUrl(url) {
             document.getElementById('url').value = url;
         }
-        
+
         function showLoading() {
             document.getElementById('loading').style.display = 'block';
             document.getElementById('results').style.display = 'none';
             document.getElementById('error').style.display = 'none';
             document.getElementById('submitBtn').disabled = true;
         }
-        
+
         function hideLoading() {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('submitBtn').disabled = false;
         }
-        
+
         function showError(message) {
             hideLoading();
             document.getElementById('errorMessage').textContent = message;
             document.getElementById('error').style.display = 'block';
             document.getElementById('results').style.display = 'none';
         }
-        
+
         function displayResults(data) {
             hideLoading();
-            
-            // Display statistics
-            const stats = data.statistics;
+
+            // Defensive: ensure stats object exists
+            const stats = data.statistics || {};
             const statsContainer = document.getElementById('stats');
+
+            // Build base stat cards (use 0/defaults if absent)
             statsContainer.innerHTML = `
                 <div class="stat-card">
-                    <span class="stat-value">${stats.total_characters.toLocaleString()}</span>
+                    <span class="stat-value">${(stats.total_characters || 0).toLocaleString()}</span>
                     <div class="stat-label">Characters</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-value">${stats.total_words.toLocaleString()}</span>
+                    <span class="stat-value">${(stats.total_words || 0).toLocaleString()}</span>
                     <div class="stat-label">Words</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-value">${stats.total_sentences.toLocaleString()}</span>
+                    <span class="stat-value">${(stats.total_sentences || 0).toLocaleString()}</span>
                     <div class="stat-label">Sentences</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-value">${stats.avg_word_length.toFixed(1)}</span>
+                    <span class="stat-value">${(stats.avg_word_length || 0).toFixed(1)}</span>
                     <div class="stat-label">Avg Word Length</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-value">${stats.avg_sentence_length.toFixed(1)}</span>
+                    <span class="stat-value">${(stats.avg_sentence_length || 0).toFixed(1)}</span>
                     <div class="stat-label">Avg Sentence Length</div>
                 </div>
             `;
-            
-            // Display summary
-            document.getElementById('summary').textContent = data.summary;
-            
+
+            // If most_common_words present, render them below the stat grid
+            if (Array.isArray(stats.most_common_words) && stats.most_common_words.length > 0) {
+                const freqHtml = stats.most_common_words.map(([word, count]) =>
+                    `<div style="display:flex;justify-content:space-between;padding:4px 8px;border-radius:4px;margin-bottom:4px;background:#fff">
+                        <div style="font-weight:600">${word}</div>
+                        <div style="opacity:0.8">${count.toLocaleString()}</div>
+                    </div>`
+                ).join('');
+                // append a card-like container
+                statsContainer.insertAdjacentHTML('beforeend', `
+                    <div style="grid-column: 1 / -1;">
+                        <div class="stat-card">
+                            <div style="text-align:left;font-weight:700;margin-bottom:8px">Top words</div>
+                            <div>${freqHtml}</div>
+                        </div>
+                    </div>
+                `);
+            }
+
+            // Display summary (safe fallback)
+            document.getElementById('summary').textContent = data.summary || '(No summary returned)';
+
             // Display text preview (first 500 characters)
-            const preview = data.cleaned_text.substring(0, 500) + 
-                          (data.cleaned_text.length > 500 ? '...' : '');
+            const cleaned = data.cleaned_text || '';
+            const preview = cleaned.substring(0, 500) + (cleaned.length > 500 ? '...' : '');
             document.getElementById('preview').textContent = preview;
-            
+
             // Show results
             document.getElementById('results').style.display = 'block';
             document.getElementById('error').style.display = 'none';
         }
-        
-        // TODO: Implement the form submission handler
-        document.getElementById('textForm').addEventListener('submit', async function(e) {
+
+        // Helper: simple URL validation for Gutenberg text files
+        function isValidGutenbergTxtUrl(u) {
+            try {
+                const parsed = new URL(u);
+                const host = parsed.hostname.toLowerCase();
+                // Accept common Project Gutenberg hosts and .txt endings (allow query/hash)
+                const gutenbergHosts = ['www.gutenberg.org', 'gutenberg.org', 'textfiles.com', 'www.textfiles.com'];
+                const pathname = parsed.pathname.toLowerCase();
+                const looksLikeTxt = pathname.endsWith('.txt') || pathname.includes('/files/');
+                return gutenbergHosts.includes(host) && looksLikeTxt;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Form submission handler
+        document.getElementById('textForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
-            const url = document.getElementById('url').value;
-            
-            // TODO: Validate URL
-            if (!url.endsWith('.txt')) {
-                showError('Please enter a valid .txt URL from Project Gutenberg');
+
+            const url = document.getElementById('url').value.trim();
+            if (!url) {
+                showError('Please enter a Project Gutenberg .txt URL.');
                 return;
             }
-            
+
+            if (!isValidGutenbergTxtUrl(url)) {
+                showError('Please enter a valid Project Gutenberg .txt URL (e.g. https://www.gutenberg.org/files/1342/1342-0.txt).');
+                return;
+            }
+
             showLoading();
-            
+
             try {
-                // TODO: Make API call to /api/clean endpoint
-                // Hint: Use fetch() with POST method
-                // Send JSON: {"url": url}
-                // Handle the response
-                
-                // For now, show an error since the API isn't implemented yet
-                setTimeout(() => {
-                    showError('API not implemented yet. Complete Part 3 to make this work!');
-                }, 1000);
-                
+                const resp = await fetch('/api/clean', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ url })
+                });
+
+                if (!resp.ok) {
+                    // Try to parse JSON error message otherwise show status
+                    let text;
+                    try {
+                        const errData = await resp.json();
+                        text = errData.error || errData.message || JSON.stringify(errData);
+                    } catch (_) {
+                        text = `Server returned ${resp.status} ${resp.statusText}`;
+                    }
+                    showError(text);
+                    return;
+                }
+
+                const data = await resp.json();
+
+                // Basic shape check
+                if (!data || !data.statistics || typeof data.cleaned_text !== 'string') {
+                    showError('Unexpected response from server. Make sure the /api/clean endpoint returns { statistics, cleaned_text, summary }.');
+                    return;
+                }
+
+                displayResults(data);
+
             } catch (error) {
-                showError('Network error: ' + error.message);
+                showError('Network error: ' + (error.message || error));
             }
         });
-        
-        // Health check on page load
-        window.addEventListener('load', async function() {
+
+        // Health check on page load (fail silently)
+        window.addEventListener('load', async function () {
             try {
                 const response = await fetch('/health');
-                const data = await response.json();
-                console.log('✅ Server status:', data.message);
+                // don't assume JSON, protect against failures
+                if (response.ok) {
+                    try {
+                        const data = await response.json();
+                        console.log('✅ Server status:', data.message || data);
+                    } catch {
+                        console.log('✅ Server reachable (non-JSON health response).');
+                    }
+                } else {
+                    console.warn('⚠️ /health returned non-OK:', response.status);
+                }
             } catch (error) {
                 console.warn('⚠️ Could not reach server:', error.message);
             }
         });
     </script>
+
 </body>
+
 </html>
