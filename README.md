@@ -69,9 +69,8 @@ Visit → http://127.0.0.1:5000
 gutenberg_text_cleaner/
 │
 ├── app.py
-├── static/
-│   ├── style.css
-│   └── script.js
+├── starter_preprocess.py
+├── test_setup.py
 ├── templates/
 │   └── index.html
 ├── requirements.txt
