@@ -20,13 +20,18 @@ A simple and powerful web app that:
 
 ## 🖥️ Demo Screenshots
 
-### 🏠 Landing Page  
-*(Insert screenshot here)*  
-`![Landing Page](screenshots/landing.png)`
+### 🏠 Landing Page
+<p align="center">
+  <img src="screenshots/landing_page_1.png" alt="Landing Page" width="800">
+</p>
+<p align="center">
+  <img src="screenshots/landing_page_2.png" alt="Landing Page" width="800">
+</p>
 
 ### 📈 Results Page  
-*(Insert screenshot here)*  
-`![Results Page](screenshots/results.png)`
+<p align="center">
+  <img src="screenshots/test_setup_results.png" alt="Landing Page" width="800">
+</p>
 
 ---
 
@@ -117,7 +122,7 @@ If you encounter issues while running the Gutenberg Text Cleaner app, check the 
 
 ## Student
 
-**Harsh Tikone**  
+**Harsh Mahesh Tikone**  
 #### Basics of AI
 🎓 EAS 510 Scaffolding Assignment 3: Building a Text Preprocessing Web Service
 ---
